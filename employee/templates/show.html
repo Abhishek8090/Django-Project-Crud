@@ -1,0 +1,30 @@
+<h1>List of Employees added</h1>
+
+{% csrf_token %}
+{% block content %}
+
+<table border="1">
+    <tr>
+        <th>Eid</th>
+        <th>Emp Name</th>
+        <th>Role</th>
+        <th>Email Address</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+
+{% for emp in emp_data %}
+
+    <tr>
+        <td>{{emp.eid}}</td>
+        <td>{{emp.ename}}</td>
+        <td>{{emp.role}}</td>
+        <td>{{emp.email}}</td>
+        <td><a href="update/{{emp.id}}" id="{{emp.id}}">Edit</a></td>
+        <td><a href="delete/{{emp.id}}" id="{{emp.id}}">Delete</a></td>
+    </tr>
+<!--<p>{{emp.eid}} {{emp.ename}} {{emp.role}} {{emp.email}}</p>-->
+
+{% endfor%}
+</table>
+{% endblock %}
